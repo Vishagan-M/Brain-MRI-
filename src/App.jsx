@@ -276,19 +276,47 @@ export default function App() {
               </div>
             )}
 
-            {result && (
-              <div className="prediction-result" aria-live="polite">
-                <span className="result-label">MODEL PREDICTION</span>
-                <h3>{formatClass(result.prediction)}</h3>
-                <p>
-                  Output score: <strong>{formatPercent(result.confidence)}</strong>
-                </p>
-                <p className="helper">
-                  This score reflects the model output, not a clinically
-                  validated probability.
-                </p>
-              </div>
-            )}
+            
+
+{result && (
+  <>
+    <div className="prediction-result" aria-live="polite">
+      <span className="result-label">MODEL PREDICTION</span>
+      <h3>{formatClass(result.prediction)}</h3>
+      <p>
+        Output score:{" "}
+        <strong>{formatPercent(result.confidence)}</strong>
+      </p>
+      <p className="helper">
+        This score reflects the model output, not a clinically
+        validated probability.
+      </p>
+    </div>
+
+    <div className="gradcam-panel">
+      <h3>Grad-CAM Explainability</h3>
+
+      {result.gradcam ? (
+        <img
+          src={result.gradcam}
+          alt="Grad-CAM heatmap overlay"
+          className="gradcam-image"
+          onError={() =>
+            setError("The Grad-CAM image could not be displayed.")
+          }
+        />
+      ) : (
+        <p>Grad-CAM image was not returned by the API.</p>
+      )}
+
+      <p className="helper">
+        {result.explanation_notice ||
+          "Experimental visualization only. Not a clinical interpretation."}
+      </p>
+    </div>
+  </>
+)}
+
 
             <div className="class-list">
               {CLASSES.map(({ key, label }) => {

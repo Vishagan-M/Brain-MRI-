@@ -282,3 +282,47 @@ footer strong { color: #dce5f1; }
   .panel { padding: 16px; }
   footer { flex-direction: column; }
 }
+
+.gradcam-panel {
+  margin-top: 24px;
+  padding: 16px;
+  border: 1px solid rgba(120, 140, 160, 0.25);
+  border-radius: 14px;
+}
+
+.gradcam-panel h3 {
+  margin: 0 0 8px;
+}
+
+.gradcam-panel p {
+  line-height: 1.5;
+}
+
+.gradcam-image {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  margin: 16px auto;
+  border-radius: 10px;
+  border: 1px solid rgba(120, 140, 160, 0.25);
+}
+
+.gradcam-panel {
+  display: block;
+  width: 100%;
+  margin-top: 24px;
+  padding: 16px;
+  border: 1px solid rgba(120, 140, 160, 0.25);
+  border-radius: 14px;
+  box-sizing: border-box;
+}
+
+.gradcam-image {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  margin: 16px auto;
+  border-radius: 10px;
+}
